@@ -1,11 +1,30 @@
-# A bug repository that keeps growing, called ***growingBugs***
+Table of Contents
+=================
 
-Notably, each bug is composed of a buggy version, a fixed version, a ***concise patch*** (bug-fixing changes only), and one or more triggering test cases.
+   * [General Introduction](#General-Introduction)
+   * [Contents of growingBugs](#Contents-of-growingBugs)
+   * [Setting up](#Setting-up-GrowingBugs)
+      * [Requirements](#Requirements)
+      * [Steps to set up GrowingBugs](#Steps-to-set-up-GrowingBugs)
+   * [Using GrowingBugs](#Using-GrowingBugs)
+      * [Typical Usage](#Typical-Usage)  
+      * [Docker Image](#Docker-Image)
+      * [Versions](#Versions)
+   * [Copyright](#Copyright)
+   * [Citation](#Citation)
+      
+# General Introduction
+This is a bug repository that keeps growing, called ***growingBugs***
+
+Notably, each bug in ***growingBugs*** is composed of a buggy version, a fixed version, a ***concise patch*** (bug-fixing changes only), and one or more triggering test cases.
+
+
 
 # Contents of growingBugs
-To date, growingBugs contains **`1404`** bugs from open-source Java projects. 
+To date, growingBugs contains **`1633`** real-world bugs from open-source Java projects. 
 
-|   | Project ID      | Project name               |   SubProject name             |Number of bugs | Bug IDs      | 
+
+|   | Project ID      | Project name               |   SubProject locator             |Number of bugs | Bug IDs      | 
 |-----------------|-----------------|----------------------------|--------------------------------|-------------:|-------------------|
 | 1     | Chart           | jfreechart                 |                           |       26       | 1-26                |
 | 2     | Cli             | commons-cli                |                           |       41       | 1-5,7-42            |
@@ -167,6 +186,53 @@ To date, growingBugs contains **`1404`** bugs from open-source Java projects.
 | 158     | Sdk_core            | sdk-core               |                   |      3       | 1-3               |
 | 159     | Cargo_container            | cargo-container               |          core/api/container         |      4       | 1-4               |
 | 160     | Oak_commons            | oak-commons               |          oak-commons         |      1       | 1               |
+| 161     | Streamex            | streamex               |                   |      7       | 1-7               |
+| 162     | Javapoet            | javapoet               |                   |      17       | 1-17               |
+| 164     | RTree            | rtree               |                   |      12       | 1-12               |
+| 165     | Spoon            | spoon               |                   |      17       | 1-17               |
+| 166     | Canvas_api            | canvas-api               |                 |      4       | 1-4               |
+| 167     | Coveralls_maven_plugin            | coveralls-maven-plugin               |                  |      8       | 1-8               |
+| 168     | Slack_java_webhook            | slack-java-webhook               |                 |      1       | 1               |
+| 169     | Zip4j            | zip4j               |                  |      55       | 1-55               |
+| 170     | Incubator_retired_pirk            | incubator-retired-pirk               |                  |      1       | 1               |
+| 171     | Sparsebitset             | SparseBitSet                |                  |      2       | 1-2               |
+| 172     | Assertj_assertions_generator            | assertj-assertions-generator               |                  |      7       | 1-7               |
+| 173     | Config_magic            | config-magic               |                  |      2       | 2               |
+| 174     | Deft            | deft               |                  |      1       | 1               |
+| 175     | Jcodemodel            | jcodemodel               |                  |      7       | 1-7               |
+| 176     | Jdbm3            | JDBM3               |                  |      6       | 1-6               |
+| 177     | Mybatis_pagehelper            | Mybatis-PageHelper               |                  |      4       | 1-4               |
+| 178     | N5            | n5               |                  |      2       | 1-2               |
+| 179     | Stash_jenkins_postreceive_webhook            | stash-jenkins-postreceive-webhook               |                  |      1       | 1               |
+| 180     | Suffixtree            | suffixtree               |                  |      1       | 1               |
+| 181     | Template_benchmark            | template-benchmark               |                  |      1       | 1               |
+| 182     | Vectorz            | vectorz               |                  |      6       | 1-6               |
+| 183     | Cli_parser         | cli-parser            |                  |      1       | 1                  |                 |
+| 184     | Gatling_report         | gatling-report            |                  |      3       | 1-3                  |                 |
+| 185     | Tabula_java         | tabula-java            |                  |      1       | 1                  |                 |
+| 186     | Ber_tlv         | ber-tlv            |                  |      4       | 1-4                  |                 |
+| 187     | Commons_suncalc         | commons-suncalc            |                  |      2       | 1-2                  |                 |
+| 188     | Dropwizard_spring         | dropwizard-spring            |                  |      1       | 1                  |                 |
+| 189     | Semux_core         | semux-core            |                  |      3       | 1-3                  |                 |
+| 190     | Solarpositioning         | solarpositioning            |                  |      3       | 1-3                  |                 |
+| 191     | Sparkey_java         | sparkey-java            |                  |      3       | 1-3                  |                 |
+| 192     | Shazamcrest         | shazamcrest            |                  |      2       | 1-2                  |                 |
+| 193     | Restfixture         | RestFixture            |                  |      4       | 1-4                  |                 |
+| 194     | Chronicle_network         | Chronicle-Network            |                  |      4       | 1-4                  |                 |
+| 195     | Farm         | farm            |                  |      4       | 1-4                  |                 |
+| 196     | Gocd_slack_build_notifier         | gocd-slack-build-notifier            |                  |      3       | 1-3                  |                 |
+| 197     | Confluence_http_authenticator         | confluence_http_authenticator            |                  |      1       | 1                  |                 |
+| 198     | Tempus_fugit         | tempus-fugit            |                  |      1       | 1                  |                 |
+| 199     | Disklrucache         | DiskLruCache           |                  |      4       | 1-4                  |                 |
+| 200     | Kafka_graphite         | kafka-graphite           |                  |      1       | 1                  |                 |
+| 201     | Simple_excel         | simple-excel           |                  |      1       | 1                  |                 |
+| 202     | Trident_ml         | trident-ml           |                  |      1       | 1                  |                 |
+| 203     | Tascalate_concurrent         | tascalate-concurrent           |                  |      2       | 1-2                  |                 |
+| 204     | Jcabi_github         | jcabi-github           |                  |      10       | 1-10                  |
+| 205     | Podam         | podam           |                  |      1       | 1                  |
+| 206     | Sansorm         | SansOrm           |                  |      2       | 1-2                  |
+| 207     | Snowleopard         | SnowLeopard           |                  |      1       | 1                  |
+| 208     | Transmittable_thread_local         | transmittable-thread-local           |                  |      1       | 1                  |
 # Setting up GrowingBugs
 
 ## Requirements
@@ -193,8 +259,10 @@ To date, growingBugs contains **`1404`** bugs from open-source Java projects.
     - `export PATH=$PATH:"path2growingbugs"/framework/bin`
 
 # Using GrowingBugs
+
+## Typical Usage
 1. Checkout a buggy source code version (If the project doesn't hava subproject, `-s` parameter can be ignored):
-    - `defects4j checkout -p project_id -v version_id -w work_dir -s subproject_name` 
+    - `defects4j checkout -p project_id -v version_id -w work_dir -s subproject_locator` 
     
     Example:
   
@@ -205,7 +273,7 @@ To date, growingBugs contains **`1404`** bugs from open-source Java projects.
 
 2. Change to the working directory, compile sources and tests, and run tests:
 
-   - `cd work_dir/subproject_name`
+   - `cd work_dir/subproject_locator`
    - `defects4j compile`
    - `defects4j test`
    
@@ -230,15 +298,14 @@ To free users (especially beginers) of the repository from the complex configura
 
 By simply loading the image with Docker, you can make the system ready for evaluation where all configurations (e.g., Java versions, paths, and even all data within the repository) should have been well set.  
 
-## Copyright
-Notably, this bug repository is based on the well-known **Defects4J** https://github.com/rjust/defects4j. We reuse its source code as well as the bugs in **Defects4J**. The key difference is that **growingBugs** levearages **BugBuilder**[1] to exclude bug-irrelevarange changes from bug-fixing commmits automatically whereas **Defects4J** requests human experts to accomplish the same task. Consequently, **growingBugs** can keep growing automatically even ***without human intervention***.  
-
-
 
 ## Versions
 Because the bug repository keeps growing, let us known if you need a stable version for your study (e.g., evalutions for a research paper), and we will release a specific version where the bugs and patches are fixed (to faciliate the replication of your study).  
 
-## Citation
+# Copyright
+Notably, this bug repository is based on the well-known **Defects4J** https://github.com/rjust/defects4j. We reuse its source code as well as the bugs in **Defects4J**. The key difference is that **growingBugs** levearages **BugBuilder**[1] to exclude bug-irrelevarange changes from bug-fixing commmits automatically whereas **Defects4J** requests human experts to accomplish the same task. Consequently, **growingBugs** can keep growing automatically even ***without human intervention***.  
+
+# Citation
 If you are exploiting our dataset, please kindly cite the following paper:
 
 **[1] Yanjie Jiang, [Hui Liu](https://liuhuigmail.github.io/), Nan Niu, Lu Zhang, Yamin Hu. Extracting Concise Bug-Fixing Patches from Human-Written Patches in Version Control Systems. The 43rd International Conference on Software Engineering (ICSE), pp. 686-698, May, 2021 https://liuhuigmail.github.io/publishedPappers/ICSE2021.pdf**
@@ -255,3 +322,5 @@ publisher = {IEEE Computer Society},
 address = {Los Alamitos, CA, USA},
 month = {may}
 }`
+
+

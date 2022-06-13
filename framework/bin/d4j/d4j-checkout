@@ -98,7 +98,6 @@ my $WORK_DIR = Utils::get_abs_path($cmd_opts{w});
 my $project = Project::create_project($PID);
 $project->{prog_root} = $WORK_DIR;
 # Checkout program version
-# should be 0, else can not export trigger tests info
 $project->checkout_vid($VID, $WORK_DIR, 0, $SID) or die "Cannot checkout program version!";
 
 1;
